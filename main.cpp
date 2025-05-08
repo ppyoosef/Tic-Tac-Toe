@@ -61,11 +61,16 @@ void drawBoard(SDL_Renderer* renderer) {
             int y = j * CELL_SIZE;
             if (board[i][j] == PLAYER_X) {
                 SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);  // Red for X
-                SDL_RenderLine(renderer, x + 10, y + 10, x + CELL_SIZE - 10, y + CELL_SIZE - 10);
-                SDL_RenderLine(renderer, x + 10, y + CELL_SIZE - 10, x + CELL_SIZE - 10, y + 10);
+                // Draw X using thicker lines
+                for(int d = -2; d <= 2; d++) {
+                    SDL_RenderLine(renderer, x + 25, y + 25 + d, x + CELL_SIZE - 25, y + CELL_SIZE - 25 + d);
+                    SDL_RenderLine(renderer, x + 25 + d, y + CELL_SIZE - 25, x + CELL_SIZE - 25 + d, y + 25);
+                }
             } else if (board[i][j] == PLAYER_O) {
                 SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);  // Blue for O
-                SDL_RenderDrawCircle(renderer, x + CELL_SIZE / 2, y + CELL_SIZE / 2, CELL_SIZE / 3);
+                for(int r = -2; r <= 2; r++) {
+                    SDL_RenderDrawCircle(renderer, x + CELL_SIZE / 2, y + CELL_SIZE / 2, CELL_SIZE / 3 + r);
+                }
             }
         }
     }
