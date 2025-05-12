@@ -2,4 +2,4 @@
 Tic Tac Toe App In CPP + SDL3
 
 
-![Tic Tac Toe Screenshot](screenshots/screen1.png)
+<img src="screenshots/screen1.png" width="400" alt="Tic Tac Toe Screenshot">
